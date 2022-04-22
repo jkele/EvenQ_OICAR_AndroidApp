@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">EvenQ</string>
+    <string name="login">Log in</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+</resources>
