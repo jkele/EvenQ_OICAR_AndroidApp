@@ -10,9 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EvenQ">
         <activity
+            android:name=".EventActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignInActivity"
-            android:noHistory="true"
-            android:exported="true">
+            android:exported="true"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

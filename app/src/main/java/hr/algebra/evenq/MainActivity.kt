@@ -2,8 +2,12 @@ package hr.algebra.evenq
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import hr.algebra.evenq.databinding.ActivityMainBinding
+import hr.algebra.evenq.fragments.AccountFragment
+import hr.algebra.evenq.fragments.EventsFragment
+import hr.algebra.evenq.fragments.TicketsFragment
 import hr.algebra.evenq.framework.startActivity
 
 private lateinit var binding: ActivityMainBinding
@@ -15,17 +19,26 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         mAuth = FirebaseAuth.getInstance()
         setContentView(binding.root)
-        setListeners()
 
-        //ovo maknut joza samo tek tolko da znas kak sing out i te glupost
-        binding.testPlaceHolderinjo.text = mAuth.currentUser!!.email
+        setupBottomNavigationListeners()
+        replaceFragment(EventsFragment())
     }
 
-    private fun setListeners() {
-        binding.btnLogout.setOnClickListener {
-            mAuth.signOut()
-            startActivity<SignInActivity>()
-            finish()
+
+    private fun setupBottomNavigationListeners(){
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when(it.itemId){
+                R.id.icon_events -> replaceFragment(EventsFragment())
+                R.id.icon_tickets -> replaceFragment(TicketsFragment())
+                R.id.icon_account -> replaceFragment(AccountFragment())
+            }
+            true
         }
+    }
+
+    private fun replaceFragment(fragment: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container, fragment)
+        transaction.commit()
     }
 }
