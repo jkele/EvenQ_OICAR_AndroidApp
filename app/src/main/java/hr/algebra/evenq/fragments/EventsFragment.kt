@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -29,8 +30,12 @@ class EventsFragment: Fragment(R.layout.fragment_events) {
         binding.rvEvents.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.eventsList.observe(viewLifecycleOwner, Observer {
+            binding.progressBar.visibility = ProgressBar.VISIBLE
+
             val adapter = EventItemRecyclerAdapter(requireContext(), it)
             binding.rvEvents.adapter = adapter
+
+            binding.progressBar.visibility = ProgressBar.INVISIBLE
         })
 
         binding.swipeContainer.setOnRefreshListener {
