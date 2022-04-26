@@ -29,11 +29,7 @@ class EventActivity : AppCompatActivity() {
 
         fillEventData()
 
-        viewModel.location.observe(this, Observer {
-            fillLocationData(it)
-        })
 
-        viewModel.getLocation(selectedEvent.locationId)
     }
 
     @SuppressLint("SetTextI18n")
@@ -47,10 +43,7 @@ class EventActivity : AppCompatActivity() {
                     " " + date.hour.toString() + ":00"
 
         binding.tvEventTicketPrice.text = selectedEvent.ticketPrice.toString()
-    }
 
-    @SuppressLint("SetTextI18n")
-    private fun fillLocationData(it: Location) {
-        binding.tvEventLocation.text = it.street + ", " + it.city
+        binding.tvEventLocation.text = selectedEvent.location.street + ", " + selectedEvent.location.city
     }
 }

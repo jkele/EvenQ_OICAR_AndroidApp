@@ -8,7 +8,7 @@ data class Event(
     val description: String,
     val posterImage: String,
     val date: String,
-    val locationId: Int,
+    val location: Location,
     val ticketPrice: Double
 ): Serializable {
 }
