@@ -2,6 +2,7 @@ package hr.algebra.evenq.fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,7 +26,11 @@ class AccountFragment: Fragment(R.layout.fragment_account) {
         binding = FragmentAccountBinding.inflate(inflater, container, false)
         mAuth = FirebaseAuth.getInstance()
 
-        binding.testPlaceHolderinjo.text = mAuth.currentUser!!.email
+        //binding.testPlaceHolderinjo.text = mAuth.currentUser!!.email
+
+        binding.testPlaceHolderinjo.text = mAuth.currentUser!!.uid
+
+        mAuth.currentUser!!.uid
 
         setLogoutListener()
 
