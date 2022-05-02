@@ -5,15 +5,19 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.common.util.Base64Utils
 import com.google.android.gms.common.util.Hex
 import hr.algebra.evenq.EventActivity
 import hr.algebra.evenq.R
 import hr.algebra.evenq.databinding.EventItemViewBinding
 import hr.algebra.evenq.network.model.Event
+import java.math.BigInteger
+import java.nio.ByteBuffer
 import java.time.LocalDateTime
 
 val EXTRA_EVENT = "hr.algebra.evenq.extraEvent"
@@ -53,7 +57,8 @@ class EventItemRecyclerAdapter(
         }
 
         if (event.posterImage != null){
-            holder.binding.ivEventImage.setImageBitmap(getBitmap(event.posterImage))
+            val bytes = Base64.decode(event.posterImage, Base64.DEFAULT)
+            holder.binding.ivEventImage.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
         }
 
         holder.binding.root.setOnClickListener {
@@ -65,10 +70,6 @@ class EventItemRecyclerAdapter(
 
     }
 
-    fun getBitmap(image: String): Bitmap{
-        val byteArray = Hex.stringToBytes(image)
-        return BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
-    }
 
     override fun getItemCount(): Int {
         return eventsList.size
