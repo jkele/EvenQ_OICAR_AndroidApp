@@ -6,6 +6,7 @@ import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 const val BASE_URL = "https://evenq.azurewebsites.net/api/"
 const val API_KEY = "90a43b0c0a9444d081d954804aaf9cb8"
@@ -17,19 +18,20 @@ class Network {
     init {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BASIC
-        val httpClient = OkHttpClient.Builder().addInterceptor(object: Interceptor{
+        val httpClient = OkHttpClient.Builder().addInterceptor(object : Interceptor {
             override fun intercept(chain: Interceptor.Chain): Response {
                 val request = chain.request().newBuilder().addHeader("ApiKey", API_KEY).build()
                 return chain.proceed(request)
             }
 
-        })
+        }).connectTimeout(1, TimeUnit.MINUTES)
+            .writeTimeout(1, TimeUnit.MINUTES)
+            .readTimeout(1, TimeUnit.MINUTES)
 
 
-
-
-        val retrofit = Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create())
-            .client(httpClient.build()).build()
+        val retrofit =
+            Retrofit.Builder().baseUrl(BASE_URL).addConverterFactory(GsonConverterFactory.create())
+                .client(httpClient.build()).build()
         service = retrofit.create(EventService::class.java)
     }
 

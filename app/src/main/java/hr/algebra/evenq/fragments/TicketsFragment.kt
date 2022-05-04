@@ -32,10 +32,10 @@ class TicketsFragment: Fragment(R.layout.fragment_tickets) {
 
         binding.rvTickets.layoutManager = LinearLayoutManager(requireContext())
 
-        viewModel.ticketsList.observe(viewLifecycleOwner, Observer {
+        viewModel.ticketsList.observe(viewLifecycleOwner, Observer { ticketList ->
             binding.progressBar.visibility = ProgressBar.VISIBLE
 
-            val validTicketsList = ArrayList(it.filter { it.isValid })
+            val validTicketsList = ArrayList(ticketList.filter { it.isValid })
 
             val adapter = TicketItemRecyclerAdapter(requireContext(), validTicketsList)
             binding.rvTickets.adapter = adapter

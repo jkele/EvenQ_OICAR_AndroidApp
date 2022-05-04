@@ -8,7 +8,6 @@ import hr.algebra.evenq.databinding.ActivityMainBinding
 import hr.algebra.evenq.fragments.AccountFragment
 import hr.algebra.evenq.fragments.EventsFragment
 import hr.algebra.evenq.fragments.TicketsFragment
-import hr.algebra.evenq.framework.startActivity
 
 private lateinit var binding: ActivityMainBinding
 private lateinit var mAuth: FirebaseAuth

@@ -13,6 +13,9 @@
             android:name=".EventActivity"
             android:exported="false" />
         <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignInActivity"
             android:exported="true"
             android:noHistory="true">

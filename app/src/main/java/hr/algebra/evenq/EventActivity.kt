@@ -1,22 +1,16 @@
 package hr.algebra.evenq
 
 import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.lifecycle.Observer
+import androidx.appcompat.app.AppCompatActivity
 import hr.algebra.evenq.adapters.EXTRA_EVENT
 import hr.algebra.evenq.databinding.ActivityEventBinding
 import hr.algebra.evenq.network.model.Event
-import hr.algebra.evenq.network.model.Location
-import hr.algebra.evenq.viewmodels.LocationViewModel
 import java.time.LocalDateTime
 
 class EventActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityEventBinding
-
-    private val viewModel: LocationViewModel by viewModels()
 
     private lateinit var selectedEvent: Event
 

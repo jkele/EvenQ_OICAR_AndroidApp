@@ -3,24 +3,22 @@ package hr.algebra.evenq.adapters
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.util.Base64
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.common.util.Base64Utils
-import com.google.android.gms.common.util.Hex
+import hr.algebra.evenq.ChatActivity
 import hr.algebra.evenq.EventActivity
 import hr.algebra.evenq.R
 import hr.algebra.evenq.databinding.EventItemViewBinding
 import hr.algebra.evenq.network.model.Event
-import java.math.BigInteger
-import java.nio.ByteBuffer
 import java.time.LocalDateTime
 
-val EXTRA_EVENT = "hr.algebra.evenq.extraEvent"
+const val EXTRA_EVENT = "hr.algebra.evenq.extraEvent"
+const val EXTRA_EVENT_NAME = "hr.algebra.evenq.extraEventName"
+const val EXTRA_EVENT_DATE = "hr.algebra.evenq.extraEventDate"
 
 class EventItemRecyclerAdapter(
     private val context: Context,
@@ -57,13 +55,25 @@ class EventItemRecyclerAdapter(
         }
 
         if (event.posterImage != null){
-            val bytes = Base64.decode(event.posterImage, Base64.DEFAULT)
-            holder.binding.ivEventImage.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
+            try {
+                val bytes = Base64.decode(event.posterImage, Base64.DEFAULT)
+                holder.binding.ivEventImage.setImageBitmap(BitmapFactory.decodeByteArray(bytes, 0, bytes.size))
+            } catch (e: Exception){
+                holder.binding.ivEventImage.setImageResource(R.drawable.ic_error)
+            }
         }
 
         holder.binding.root.setOnClickListener {
             val intent = Intent(context, EventActivity::class.java).apply {
                 putExtra(EXTRA_EVENT, event)
+            }
+            context.startActivity(intent)
+        }
+
+        holder.binding.btnChat.setOnClickListener {
+            val intent = Intent(context, ChatActivity::class.java).apply {
+                putExtra(EXTRA_EVENT_NAME, event.title)
+                putExtra(EXTRA_EVENT_DATE, event.date)
             }
             context.startActivity(intent)
         }
