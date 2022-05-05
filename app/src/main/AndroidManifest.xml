@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="hr.algebra.evenq">
+    package="hr.algebra.evenq" >
 
     <application
         android:allowBackup="true"
@@ -8,17 +8,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EvenQ">
-        <activity
-            android:name=".EventActivity"
-            android:exported="false" />
+        android:theme="@style/Theme.EvenQ" >
         <activity
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
+            android:name=".EventActivity"
+            android:exported="false" />
+        <activity
             android:name=".SignInActivity"
             android:exported="true"
-            android:noHistory="true">
+            android:noHistory="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

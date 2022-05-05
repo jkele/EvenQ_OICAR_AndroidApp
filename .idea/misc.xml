@@ -17,6 +17,19 @@
         <entry key="..\:/Users/zakesekresa/Desktop/EvenQ/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2725" />
         <entry key="..\:/Users/zakesekresa/Desktop/EvenQ/app/src/main/res/layout/activity_sign_in.xml" value="0.33" />
         <entry key="..\:/Users/zakesekresa/Desktop/EvenQ/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.196" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/drawable-v24/background_chat.xml" value="0.2725" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/drawable-v24/background_chatbox.xml" value="0.2725" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/drawable-v24/background_message_receive.xml" value="0.1595" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/drawable-v24/background_message_sent.xml" value="0.2725" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2725" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/drawable-v24/ic_send.xml" value="0.2725" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/drawable/background_event_item_view.xml" value="0.1595" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/layout/activity_chat.xml" value="0.14722222222222223" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/layout/activity_event.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/layout/event_item_view.xml" value="0.33" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/layout/received_message.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/zakesekresa/Desktop/EvenQ_OICAR_AndroidAppGEGE/app/src/main/res/layout/sent_message.xml" value="0.358695652173913" />
       </map>
     </option>
   </component>

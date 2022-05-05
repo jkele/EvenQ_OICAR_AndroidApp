@@ -23,4 +23,6 @@
     <color name="elevation_elevation_2">#33000000</color>
     <color name="overlay">#331c1f22</color>
     <color name="surface_none">#001e1d25</color>
+    <color name="dark_purple">#402F6E</color>
+    <color name="purple">#685A8E</color>
 </resources>

@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         setupBottomNavigationListeners()
         replaceFragment(EventsFragment())
+
     }
 
 
