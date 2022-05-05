@@ -1,5 +1,6 @@
 package hr.algebra.evenq.fragments
 
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,12 +10,14 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.google.firebase.auth.FirebaseAuth
 import hr.algebra.evenq.R
 import hr.algebra.evenq.adapters.TicketItemRecyclerAdapter
 import hr.algebra.evenq.databinding.FragmentTicketsBinding
 import hr.algebra.evenq.framework.isOnline
 import hr.algebra.evenq.framework.showInternetConnectionAlertDialog
+import hr.algebra.evenq.network.model.Ticket
 import hr.algebra.evenq.viewmodels.TicketsViewModel
 
 class TicketsFragment : Fragment(R.layout.fragment_tickets) {
@@ -42,19 +45,39 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
             val adapter = TicketItemRecyclerAdapter(requireContext(), validTicketsList)
             binding.rvTickets.adapter = adapter
 
+            viewModel.insertAllTickets(ticketList)
+
             binding.progressBar.visibility = ProgressBar.INVISIBLE
         })
 
-        binding.swipeContainer.setOnRefreshListener {
-            viewModel.getTicketsForMember(mAuth.currentUser!!.uid)
-            binding.swipeContainer.isRefreshing = false
-        }
 
         if (requireContext().isOnline()) {
             viewModel.getTicketsForMember(mAuth.currentUser!!.uid)
+
+            binding.swipeContainer.setOnRefreshListener {
+                viewModel.getTicketsForMember(mAuth.currentUser!!.uid)
+                binding.swipeContainer.isRefreshing = false
+            }
         } else {
-            showInternetConnectionAlertDialog(requireContext())
-            binding.progressBar.visibility = ProgressBar.INVISIBLE
+            viewModel.ticketsFromDb.observe(viewLifecycleOwner, Observer { ticketList ->
+                binding.progressBar.visibility = ProgressBar.VISIBLE
+                val convertedList = ArrayList<Ticket>()
+
+                val validTicketsList = ArrayList(ticketList.filter { it.isValid })
+                validTicketsList.forEach{
+                    convertedList.add(it.convertToTicket())
+                }
+
+                val adapter = TicketItemRecyclerAdapter(requireContext(), convertedList)
+                binding.rvTickets.adapter = adapter
+
+                binding.progressBar.visibility = ProgressBar.INVISIBLE
+            })
+
+            binding.swipeContainer.setOnRefreshListener {
+                binding.swipeContainer.isRefreshing = false
+            }
+
         }
 
         return binding.root
