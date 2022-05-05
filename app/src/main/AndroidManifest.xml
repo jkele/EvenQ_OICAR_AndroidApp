@@ -10,10 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.EvenQ">
         <activity
-            android:name=".EventActivity"
+            android:name=".ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".ChatActivity"
+            android:name=".EventActivity"
             android:exported="false" />
         <activity
             android:name=".SignInActivity"
