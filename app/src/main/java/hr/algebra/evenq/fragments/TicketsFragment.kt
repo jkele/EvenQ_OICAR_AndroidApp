@@ -13,9 +13,11 @@ import com.google.firebase.auth.FirebaseAuth
 import hr.algebra.evenq.R
 import hr.algebra.evenq.adapters.TicketItemRecyclerAdapter
 import hr.algebra.evenq.databinding.FragmentTicketsBinding
+import hr.algebra.evenq.framework.isOnline
+import hr.algebra.evenq.framework.showInternetConnectionAlertDialog
 import hr.algebra.evenq.viewmodels.TicketsViewModel
 
-class TicketsFragment: Fragment(R.layout.fragment_tickets) {
+class TicketsFragment : Fragment(R.layout.fragment_tickets) {
 
     private lateinit var binding: FragmentTicketsBinding
     private lateinit var mAuth: FirebaseAuth
@@ -48,7 +50,12 @@ class TicketsFragment: Fragment(R.layout.fragment_tickets) {
             binding.swipeContainer.isRefreshing = false
         }
 
-        viewModel.getTicketsForMember(mAuth.currentUser!!.uid)
+        if (requireContext().isOnline()) {
+            viewModel.getTicketsForMember(mAuth.currentUser!!.uid)
+        } else {
+            showInternetConnectionAlertDialog(requireContext())
+            binding.progressBar.visibility = ProgressBar.INVISIBLE
+        }
 
         return binding.root
     }

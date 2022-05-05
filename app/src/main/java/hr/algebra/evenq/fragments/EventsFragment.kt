@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import hr.algebra.evenq.R
 import hr.algebra.evenq.adapters.EventItemRecyclerAdapter
 import hr.algebra.evenq.databinding.FragmentEventsBinding
+import hr.algebra.evenq.framework.isOnline
+import hr.algebra.evenq.framework.showInternetConnectionAlertDialog
 import hr.algebra.evenq.viewmodels.EventsViewModel
 
 class EventsFragment: Fragment(R.layout.fragment_events) {
@@ -43,7 +45,12 @@ class EventsFragment: Fragment(R.layout.fragment_events) {
             binding.swipeContainer.isRefreshing = false
         }
 
-        viewModel.getEvents()
+        if (requireContext().isOnline()){
+            viewModel.getEvents()
+        } else {
+            showInternetConnectionAlertDialog(requireContext())
+            binding.progressBar.visibility = ProgressBar.INVISIBLE
+        }
 
         return binding.root
     }
