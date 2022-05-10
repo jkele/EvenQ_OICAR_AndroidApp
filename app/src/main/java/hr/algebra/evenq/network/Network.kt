@@ -18,12 +18,9 @@ class Network {
     init {
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BASIC
-        val httpClient = OkHttpClient.Builder().addInterceptor(object : Interceptor {
-            override fun intercept(chain: Interceptor.Chain): Response {
-                val request = chain.request().newBuilder().addHeader("ApiKey", API_KEY).build()
-                return chain.proceed(request)
-            }
-
+        val httpClient = OkHttpClient.Builder().addInterceptor(Interceptor { chain ->
+            val request = chain.request().newBuilder().addHeader("ApiKey", API_KEY).build()
+            chain.proceed(request)
         }).connectTimeout(1, TimeUnit.MINUTES)
             .writeTimeout(1, TimeUnit.MINUTES)
             .readTimeout(1, TimeUnit.MINUTES)

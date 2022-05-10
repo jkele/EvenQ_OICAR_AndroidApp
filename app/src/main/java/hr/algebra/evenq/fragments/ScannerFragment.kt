@@ -23,35 +23,23 @@ class ScannerFragment: Fragment(R.layout.fragment_scanner) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentScannerBinding.inflate(inflater, container, false)
-
-        codeScanner = CodeScanner(requireContext(), binding.scannerView).apply {
-            this.camera = CodeScanner.CAMERA_BACK
-            this.formats = CodeScanner.ALL_FORMATS
-            this.autoFocusMode = AutoFocusMode.SAFE
-            this.scanMode = ScanMode.SINGLE
-            this.isAutoFocusEnabled = true
-            this.isFlashEnabled = false
-        }
-
-        codeScanner.decodeCallback = DecodeCallback {
-            Toast.makeText(requireContext(), "Scan result: ${it.text}", Toast.LENGTH_LONG).show()
-        }
-        codeScanner.errorCallback = ErrorCallback { // or ErrorCallback.SUPPRESS
-            Toast.makeText(
-                requireContext(), "Camera initialization error: ${it.message}",
-                Toast.LENGTH_LONG
-            ).show()
-        }
-
-        binding.scannerView.setOnClickListener {
-            codeScanner.startPreview()
-        }
-
         return binding.root
     }
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val scannerView = binding.scannerView
+        val activity = requireActivity()
+        codeScanner = CodeScanner(activity, scannerView)
+        codeScanner.decodeCallback = DecodeCallback {
+            activity.runOnUiThread {
+                Toast.makeText(activity, it.text, Toast.LENGTH_LONG).show()
+            }
+        }
+        scannerView.setOnClickListener {
+            codeScanner.startPreview()
+        }
+    }
     override fun onResume() {
         super.onResume()
         codeScanner.startPreview()
