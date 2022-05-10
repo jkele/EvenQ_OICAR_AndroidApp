@@ -12,4 +12,7 @@
     <string name="ticket_price_text">Ticket price:</string>
     <string name="location_text">Location:</string>
     <string name="hint_message">Start typing...</string>
+    <string name="ticket_scanner">Ticket Scanner</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

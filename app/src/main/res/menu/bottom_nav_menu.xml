@@ -14,4 +14,9 @@
         android:id="@+id/icon_account"
         android:icon="@drawable/ic_account"
         android:title="@string/my_account"/>
+
+    <item
+        android:id="@+id/icon_scanner"
+        android:icon="@drawable/ic_scanner"
+        android:title="@string/ticket_scanner"/>
 </menu>
