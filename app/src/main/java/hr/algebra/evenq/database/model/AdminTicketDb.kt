@@ -7,8 +7,8 @@ import hr.algebra.evenq.network.model.Member
 import hr.algebra.evenq.network.model.Ticket
 import java.io.Serializable
 
-@Entity(tableName = "userTickets")
-class TicketDb(
+@Entity(tableName = "adminTickets")
+class AdminTicketDb(
     @PrimaryKey
     val idTicket: Int,
     val ticketQR: String,
@@ -16,7 +16,7 @@ class TicketDb(
     val memberId: String,
     val event: Event,
     val eventId: Int,
-    val isValid: Boolean
+    var isValid: Boolean
 ) : Serializable {
 
     fun convertToTicket(): Ticket {

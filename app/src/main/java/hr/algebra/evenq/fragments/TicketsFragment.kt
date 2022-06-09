@@ -59,7 +59,7 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
                 binding.swipeContainer.isRefreshing = false
             }
         } else {
-            viewModel.ticketsFromDb.observe(viewLifecycleOwner, Observer { ticketList ->
+            viewModel.ticketsFromDb.observe(viewLifecycleOwner) { ticketList ->
                 binding.progressBar.visibility = ProgressBar.VISIBLE
                 val convertedList = ArrayList<Ticket>()
 
@@ -72,7 +72,7 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
                 binding.rvTickets.adapter = adapter
 
                 binding.progressBar.visibility = ProgressBar.INVISIBLE
-            })
+            }
 
             binding.swipeContainer.setOnRefreshListener {
                 binding.swipeContainer.isRefreshing = false

@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import hr.algebra.evenq.ChatActivity
-import hr.algebra.evenq.EventActivity
+import hr.algebra.evenq.EventMapsActivity
 import hr.algebra.evenq.R
 import hr.algebra.evenq.databinding.EventItemViewBinding
 import hr.algebra.evenq.network.model.Event
@@ -70,7 +70,7 @@ class EventItemRecyclerAdapter(
         }
 
         holder.binding.root.setOnClickListener {
-            val intent = Intent(context, EventActivity::class.java).apply {
+            val intent = Intent(context, EventMapsActivity::class.java).apply {
                 putExtra(EXTRA_EVENT, event)
             }
             context.startActivity(intent)

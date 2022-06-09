@@ -7,7 +7,6 @@ import com.google.firebase.auth.FirebaseAuth
 import hr.algebra.evenq.databinding.ActivityMainBinding
 import hr.algebra.evenq.fragments.AccountFragment
 import hr.algebra.evenq.fragments.EventsFragment
-import hr.algebra.evenq.fragments.ScannerFragment
 import hr.algebra.evenq.fragments.TicketsFragment
 
 private lateinit var binding: ActivityMainBinding
@@ -32,7 +31,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.icon_events -> replaceFragment(EventsFragment())
                 R.id.icon_tickets -> replaceFragment(TicketsFragment())
                 R.id.icon_account -> replaceFragment(AccountFragment())
-                R.id.icon_scanner -> replaceFragment(ScannerFragment())
             }
             true
         }

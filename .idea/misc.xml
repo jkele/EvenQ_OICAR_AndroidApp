@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Josip/Desktop/Android predavanja projekti/EvenQ_OICAR_AndroidApp/app/src/main/res/drawable/background_event_item_view.xml" value="0.127" />
+        <entry key="..\:/Users/Josip/Desktop/Android predavanja projekti/EvenQ_OICAR_AndroidApp/app/src/main/res/drawable/background_image_container.xml" value="0.144" />
         <entry key="..\:/Users/Josip/Desktop/Android predavanja projekti/EvenQ_OICAR_AndroidApp/app/src/main/res/drawable/ic_baseline_error_outline_24.xml" value="0.2" />
         <entry key="..\:/Users/Josip/Desktop/Android predavanja projekti/EvenQ_OICAR_AndroidApp/app/src/main/res/layout/activity_chat.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Josip/Desktop/Android predavanja projekti/EvenQ_OICAR_AndroidApp/app/src/main/res/layout/activity_event.xml" value="0.21875" />
+        <entry key="..\:/Users/Josip/Desktop/Android predavanja projekti/EvenQ_OICAR_AndroidApp/app/src/main/res/layout/activity_event_maps.xml" value="0.25" />
         <entry key="..\:/Users/Josip/Desktop/Android predavanja projekti/EvenQ_OICAR_AndroidApp/app/src/main/res/layout/activity_main.xml" value="0.18115942028985507" />
         <entry key="..\:/Users/Josip/Desktop/Android predavanja projekti/EvenQ_OICAR_AndroidApp/app/src/main/res/layout/activity_scanner.xml" value="0.21240942028985507" />
         <entry key="..\:/Users/Josip/Desktop/Android predavanja projekti/EvenQ_OICAR_AndroidApp/app/src/main/res/layout/event_item_view.xml" value="0.22826086956521738" />

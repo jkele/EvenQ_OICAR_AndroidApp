@@ -7,10 +7,11 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import hr.algebra.evenq.database.converters.EventTypeConverter
 import hr.algebra.evenq.database.converters.MemberTypeConverter
+import hr.algebra.evenq.database.model.AdminTicketDb
 import hr.algebra.evenq.database.model.TicketDb
 
 
-@Database(entities = [TicketDb::class], version = 1)
+@Database(entities = [TicketDb::class, AdminTicketDb::class], version = 1)
 @TypeConverters(MemberTypeConverter::class, EventTypeConverter::class)
 abstract class TicketDatabase: RoomDatabase() {
     abstract fun ticketDao(): TicketDao

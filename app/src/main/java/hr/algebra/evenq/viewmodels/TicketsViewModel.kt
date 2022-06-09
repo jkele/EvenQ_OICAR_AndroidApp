@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.*
 import hr.algebra.evenq.database.TicketDatabase
 import hr.algebra.evenq.database.TicketRepository
+import hr.algebra.evenq.database.model.AdminTicketDb
 import hr.algebra.evenq.database.model.TicketDb
 import hr.algebra.evenq.network.Network
 import hr.algebra.evenq.network.model.Ticket
@@ -24,13 +25,6 @@ class TicketsViewModel(application: Application): AndroidViewModel(application) 
     fun getTicketsForMember(memberId: String){
         viewModelScope.launch {
             ticketsList.value = Network().getService().getTicketsByMemberId(memberId)
-        }
-    }
-
-    fun insertTicket(ticket: Ticket) {
-        val ticketToInsert = ticket.convertToTicketDb()
-        viewModelScope.launch {
-            repository.insertTicket(ticketToInsert)
         }
     }
 

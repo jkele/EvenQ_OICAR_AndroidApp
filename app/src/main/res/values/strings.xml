@@ -15,4 +15,16 @@
     <string name="ticket_scanner">Ticket Scanner</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_event_maps">EventMapsActivity</string>
+    <string name="venue">Venue</string>
+    <string name="scan_tickets">Scan tickets</string>
+    <string name="chat">Chat</string>
+    <string name="account_details">Account details</string>
+    <string name="first_name">First name</string>
+    <string name="last_name">Last name</string>
+    <string name="refferal_code">Refferal code:</string>
+    <string name="membership">Membership:</string>
+    <string name="valid">Valid</string>
+    <string name="expired">Expired</string>
+    <string name="log_out">Log out</string>
 </resources>

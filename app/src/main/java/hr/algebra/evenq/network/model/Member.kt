@@ -7,7 +7,7 @@ data class Member(
     val firstName: String,
     val lastName: String,
     val refferalCode: String,
-    val isAdmin: String,
+    val isAdmin: Boolean,
     val numberOfRefferals: Int,
     val membershipValid: Boolean
 ): Serializable {
