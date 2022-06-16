@@ -8,6 +8,7 @@
 
 
     <TextView
+        android:textColor="@color/white"
         android:id="@+id/profileName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,7 +41,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/messageTvMargin"
-        android:textColor="@color/black"
+        android:textColor="@color/surface_surface_2"
         android:textSize="@dimen/messageDateTextSize"
         app:layout_constraintStart_toStartOf="@id/textMessage"
         app:layout_constraintTop_toBottomOf="@id/textMessage"
