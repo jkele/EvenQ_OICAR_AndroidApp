@@ -34,9 +34,7 @@ class ScannerActivity : AppCompatActivity() {
         val selectedEventId = intent.getIntExtra(EXTRA_EVENT_ID, 0)
 
         val requestCamera = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
-            if (it) {
-                Toast.makeText(this, "Permission granted", Toast.LENGTH_SHORT).show()
-            } else {
+            if (!it) {
                 Toast.makeText(this, "Permission not granted", Toast.LENGTH_SHORT).show()
             }
         }
