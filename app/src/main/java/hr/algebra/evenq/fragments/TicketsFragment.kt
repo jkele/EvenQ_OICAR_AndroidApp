@@ -40,6 +40,8 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
         viewModel.ticketsList.observe(viewLifecycleOwner, Observer { ticketList ->
             binding.progressBar.visibility = ProgressBar.VISIBLE
 
+            if (ticketList.isEmpty()) binding.tvNoTickets.visibility = View.VISIBLE
+
             val validTicketsList = ArrayList(ticketList.filter { it.isValid })
 
             val adapter = TicketItemRecyclerAdapter(requireContext(), validTicketsList)
