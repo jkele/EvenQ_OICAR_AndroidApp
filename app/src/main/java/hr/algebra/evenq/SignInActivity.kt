@@ -3,6 +3,7 @@ package hr.algebra.evenq
 import android.os.Bundle
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.google.firebase.auth.FirebaseAuth
 import hr.algebra.evenq.databinding.ActivitySignInBinding
 import hr.algebra.evenq.framework.showToast
@@ -20,6 +21,7 @@ class SignInActivity : AppCompatActivity() {
         checkForUser()
         setContentView(binding.root)
         setListeners()
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     private fun checkForUser() {

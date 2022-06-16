@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/purple_500"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/evenqDark"
     android:orientation="vertical"
     android:theme="@style/ChatActivityTheme">
 
@@ -36,6 +37,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:background="@drawable/background_chat"
+            android:backgroundTint="@color/evenqLight"
             android:clipToPadding="false"
             android:padding="@dimen/rvChatPadding" />
 
@@ -72,7 +74,7 @@
                 android:layout_gravity="center|end"
                 android:layout_marginBottom="@dimen/sendBtnMarginBottom"
                 android:layout_weight="10"
-                android:backgroundTint="@color/white"
+                app:tint="@color/goldTint"
                 android:src="@drawable/ic_send" />
 
         </LinearLayout>

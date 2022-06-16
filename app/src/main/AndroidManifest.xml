@@ -29,7 +29,7 @@
             android:theme="@style/EventActivityTheme" />
         <activity
             android:name=".ScannerActivity"
-            android:exported="false" />
+            android:exported="false"/>
         <activity
             android:name=".ChatActivity"
             android:exported="false"
@@ -37,7 +37,8 @@
         <activity
             android:name=".SignInActivity"
             android:exported="true"
-            android:noHistory="true">
+            android:noHistory="true"
+            android:theme="@style/SignInActivityTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
