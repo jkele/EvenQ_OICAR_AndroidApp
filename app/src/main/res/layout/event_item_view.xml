@@ -59,13 +59,13 @@
             android:id="@+id/btnChat"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="16dp"
             android:backgroundTint="@android:color/transparent"
             android:src="@drawable/ic_chat"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/imageContainer"
-            app:tint="@color/white" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/goldTint" />
 
         <TextView
             android:id="@+id/tvEventDescription"
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="72dp"
             android:theme="@style/BodyMediumNLv1Left"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvEventTitle"

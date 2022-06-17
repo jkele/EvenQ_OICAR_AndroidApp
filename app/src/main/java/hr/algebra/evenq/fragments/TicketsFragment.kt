@@ -40,8 +40,6 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
         viewModel.ticketsList.observe(viewLifecycleOwner, Observer { ticketList ->
             binding.progressBar.visibility = ProgressBar.VISIBLE
 
-            if (ticketList.isEmpty()) binding.tvNoTickets.visibility = View.VISIBLE
-
             val validTicketsList = ArrayList(ticketList.filter { it.isValid })
 
             val adapter = TicketItemRecyclerAdapter(requireContext(), validTicketsList)
@@ -50,6 +48,12 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
             viewModel.insertAllTickets(ticketList)
 
             binding.progressBar.visibility = ProgressBar.INVISIBLE
+
+            if (adapter.itemCount == 0) {
+                binding.tvNoTickets.visibility = View.VISIBLE
+            } else {
+                binding.tvNoTickets.visibility = View.GONE
+            }
         })
 
 
@@ -66,7 +70,7 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
                 val convertedList = ArrayList<Ticket>()
 
                 val validTicketsList = ArrayList(ticketList.filter { it.isValid })
-                validTicketsList.forEach{
+                validTicketsList.forEach {
                     convertedList.add(it.convertToTicket())
                 }
 
