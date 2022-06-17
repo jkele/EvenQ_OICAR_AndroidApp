@@ -67,7 +67,7 @@ class SignInActivity : AppCompatActivity() {
         ) {
             showToast("Enter valid email")
             return false
-        } else if (binding.etEmail.text.toString().trim().isEmpty()) {
+        } else if (binding.etPassword.text.toString().trim().isEmpty()) {
             showToast("Enter passworrd")
             return false
         }
