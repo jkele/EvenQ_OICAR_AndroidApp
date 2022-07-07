@@ -44,12 +44,7 @@ class SignInActivity : AppCompatActivity() {
         )
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    if (mAuth.currentUser!!.isEmailVerified) {
-                        startActivity<MainActivity>()
-                    } else {
-                        mAuth.signOut()
-                        showToast("Email not verified.")
-                    }
+                    startActivity<MainActivity>()
                 } else {
                     showToast("Authentication failed.")
                 }
